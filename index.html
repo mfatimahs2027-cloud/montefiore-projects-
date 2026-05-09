@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Montefiore Plaza Reimagined: a professional, evidence-based student redevelopment pitch by Shamor and Mahnoor." />
+  <title>Montefiore Plaza Reimagined | Shamor Nylah Mahnoor Audrey </title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    :root {
+      --navy: #071a33;
+      --navy-2: #0b2545;
+      --blue: #123c69;
+      --light-blue: #d9ecff;
+      --gold: #f5c542;
+      --green: #2f9e67;
+      --mint: #dff8ea;
+      --orange: #f28c28;
+      --red: #d94f3d;
+      --white: #ffffff;
+      --soft-white: #f7fbff;
+      --text: #102033;
+      --muted: #526173;
+      --shadow: 0 18px 45px rgba(0,0,0,0.25);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 18px;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -60px;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-weight: 800;
+      z-index: 9999;
+    }
+    .skip-link:focus { top: 12px; }
+
+    header {
+      min-height: 92vh;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(7,26,51,0.96), rgba(7,26,51,0.72), rgba(7,26,51,0.92)),
+        url('images/after-plan-render.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 90px 22px 70px;
+      text-align: left;
+    }
+
+    .hero-inner {
+      width: min(1180px, 100%);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.24);
+      padding: 10px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+    }
+
+    .logo-dot {
+      width: 16px;
+      height: 16px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(245,197,66,0.18);
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 6rem);
+      line-height: 0.95;
+      margin: 0 0 18px;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-subtitle {
+      max-width: 720px;
+      font-size: clamp(1.12rem, 2vw, 1.45rem);
+      color: #eaf3ff;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions, .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 900;
+      text-decoration: none;
+      border: 2px solid var(--gold);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.65);
+    }
+
+    .hero-panel {
+      background: rgba(255,255,255,0.11);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: var(--radius);
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--gold);
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      line-height: 1.1;
+    }
+
+    .stat span { color: #eef6ff; font-size: 0.95rem; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7,26,51,0.96);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+    }
+
+    nav ul {
+      margin: 0 auto;
+      padding: 10px 14px;
+      width: min(1240px, 100%);
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      display: inline-block;
+      color: var(--white);
+      text-decoration: none;
+      padding: 8px 11px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    nav a:hover, nav a:focus {
+      background: var(--gold);
+      color: var(--navy);
+      outline: none;
+    }
+
+    main {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 38px 20px 70px;
+    }
+
+    section {
+      background: var(--soft-white);
+      border-radius: var(--radius);
+      padding: clamp(22px, 4vw, 42px);
+      margin-bottom: 30px;
+      box-shadow: 0 16px 38px rgba(0,0,0,0.20);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .section-dark {
+      background: linear-gradient(135deg, var(--navy-2), #102f5b);
+      color: var(--white);
+    }
+
+    .section-dark h2, .section-dark h3 { color: var(--white); }
+    .section-dark p, .section-dark li { color: #e9f2ff; }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--navy-2);
+      font-size: clamp(1.9rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      color: var(--blue);
+      margin: 22px 0 8px;
+      font-size: 1.3rem;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      color: #344054;
+      max-width: 900px;
+    }
+
+    .section-dark .lead { color: #e7f1ff; }
+
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 0.83rem;
+      margin-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid #d9e3ef;
+      box-shadow: 0 8px 18px rgba(7,26,51,0.08);
+      border-top: 7px solid var(--green);
+    }
+
+    .card:nth-child(2n) { border-top-color: var(--gold); }
+    .card:nth-child(3n) { border-top-color: var(--blue); }
+    .card:nth-child(4n) { border-top-color: var(--orange); }
+
+    .section-dark .card {
+      background: rgba(255,255,255,0.10);
+      color: var(--white);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .section-dark .card p { color: #eaf3ff; }
+
+    .highlight {
+      background: #fff3cf;
+      color: var(--navy);
+      border-left: 8px solid var(--gold);
+      padding: 18px;
+      border-radius: 16px;
+      margin: 20px 0;
+      font-weight: 750;
+    }
+
+    .warning {
+      background: #fff4f2;
+      border-left-color: var(--red);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    /* Before and After Slider */
+    .slider-wrap {
+      margin-top: 24px;
+      background: var(--navy);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .ba-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      height: min(65vh, 560px);
+      min-height: 360px;
+      background: #00111f;
+      user-select: none;
+    }
+
+    .ba-slider img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ba-after { clip-path: inset(0 0 0 50%); }
+
+    .ba-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: var(--gold);
+      transform: translateX(-50%);
+      z-index: 5;
+    }
+
+    .ba-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 6;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--navy);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      border: 4px solid white;
+    }
+
+    .ba-range {
+      width: 100%;
+      margin: 16px 0 0;
+      accent-color: var(--gold);
+    }
+
+    .label {
+      position: absolute;
+      top: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(7,26,51,0.88);
+      color: white;
+      font-weight: 900;
+      z-index: 7;
+    }
+    .label.before { left: 16px; }
+    .label.after { right: 16px; }
+
+    .caption {
+      color: #eaf3ff;
+      margin: 12px 4px 0;
+      font-size: 0.96rem;
+    }
+
+    .table-wrap { overflow-x: auto; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      margin: 18px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      font-size: 0.95rem;
+    }
+
+    caption {
+      caption-side: top;
+      text-align: left;
+      color: var(--navy-2);
+      font-weight: 900;
+      font-size: 1.2rem;
+      padding: 0 0 8px;
+    }
+
+    th, td {
+      border: 1px solid #d4deea;
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--navy-2);
+      color: var(--white);
+    }
+
+    tr:nth-child(even) td { background: #f2f7fd; }
+
+    .chart-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 22px;
+      margin: 20px 0;
+      border: 1px solid #d9e3ef;
+      box-shadow: 0 10px 24px rgba(7,26,51,0.09);
+    }
+
+    .chart-note {
+      background: #fff3cf;
+      border-left: 7px solid var(--gold);
+      padding: 13px;
+      border-radius: 13px;
+      margin-top: 12px;
+      color: var(--navy);
+      font-size: 0.96rem;
+      font-weight: 700;
+    }
+
+    details {
+      background: var(--white);
+      border: 1px solid #d6e0ec;
+      border-radius: 16px;
+      padding: 15px 18px;
+      margin: 12px 0;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--navy-2);
+      font-weight: 900;
+      font-size: 1.08rem;
+    }
+
+    .source-list a {
+      color: #cde7ff;
+      font-weight: 800;
+    }
+
+    footer {
+      background: #031022;
+      color: white;
+      text-align: center;
+      padding: 34px 20px;
+    }
+
+    @media (max-width: 850px) {
+      .hero-inner, .two-col { grid-template-columns: 1fr; }
+      header { min-height: auto; }
+      .stat-grid { grid-template-columns: 1fr; }
+      nav { position: static; }
+      .ba-slider { height: 430px; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header id="top">
+    <div class="hero-inner">
+      <div>
+        <div class="logo-mark"><span class="logo-dot"></span> MONTEFIORE PLAZA REIMAGINED</div>
+        <h1>Community. Culture. Investment.</h1>
+        <p class="hero-subtitle">
+          A professional, evidence-based student redevelopment pitch by Shamor and Mahnoor for a safer, greener, more accessible, and economically active Montefiore Plaza in Harlem.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#pitch">View the Pitch</a>
+          <a class="btn secondary" href="#financials">Financial Plan</a>
+          <a class="btn secondary" href="#slider">Before & After</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Verified project facts">
+        <span class="eyebrow">Verified background check</span>
+        <div class="stat-grid">
+          <div class="stat"><strong>$18.4M</strong><span>Official completed project cost reported by NYC DDC.</span></div>
+          <div class="stat"><strong>44,650</strong><span>Square feet after Montefiore Square was expanded.</span></div>
+          <div class="stat"><strong>36</strong><span>New trees reported in the completed NYC project.</span></div>
+          <div class="stat"><strong>13,140</strong><span>Square-foot central terraced lawn reported in project coverage.</span></div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <nav aria-label="Main website navigation">
+    <ul>
+      <li><a href="#background">Evidence</a></li>
+      <li><a href="#slider">Before/After</a></li>
+      <li><a href="#pitch">Pitch</a></li>
+      <li><a href="#why">Why It Matters</a></li>
+      <li><a href="#financials">Financials</a></li>
+      <li><a href="#graphs">Graphs</a></li>
+      <li><a href="#investors">Investors</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <section id="background">
+      <span class="eyebrow">1. Background check first</span>
+      <h2>What We Can Say Factually</h2>
+      <p class="lead">
+        This website separates verified facts from student proposal estimates. The original Montefiore Square capital project was officially reported by NYC agencies as an $18.4 million project that expanded and revamped the Harlem public space. Independent project coverage also reports that the redesigned plaza became 44,650 square feet, included a 13,140 square-foot central terraced lawn, 19 benches, and 36 new trees.
+      </p>
+      <div class="highlight warning">
+        Honesty note: Budget numbers for our proposed improvements are student planning estimates, not official city cost estimates. Revenue and 10-year benefit models are projections, not guaranteed profits.
+      </div>
+      <div class="grid">
+        <article class="card"><h3>Government relevance</h3><p>The proposal connects to safety, accessibility, public space programming, stormwater management, and environmental resilience.</p></article>
+        <article class="card"><h3>Business relevance</h3><p>The plan creates room for vendor kiosks, local markets, foot traffic, sponsorship, and stronger neighborhood activity.</p></article>
+        <article class="card"><h3>Investor relevance</h3><p>The pitch explains where money goes, why costs may be controlled, and what long-term public and economic value could result.</p></article>
+      </div>
+    </section>
+
+    <section id="slider" class="section-dark">
+      <span class="eyebrow">2. Visual transformation</span>
+      <h2>Before vs. After Slider</h2>
+      <p class="lead">
+        Drag the slider to compare the current visual condition with the proposed upgraded vision. Upload your real current photo as <strong>before-montefiore.jpg</strong> and your proposal image as <strong>after-plan-render.jpg</strong> inside the GitHub <strong>images</strong> folder.
+      </p>
+      <div class="slider-wrap">
+        <div class="ba-slider" id="baSlider">
+          <img class="ba-before" src="images/before-montefiore.jpg" alt="Current Montefiore Plaza before the proposed student redesign" />
+          <img class="ba-after" id="baAfter" src="images/after-plan-render.jpg" alt="Proposed upgraded Montefiore Plaza vision with trees, lighting, vendors, murals, accessible seating, Wi-Fi, and family spaces" />
+          <span class="label before">Before</span>
+          <span class="label after">After</span>
+          <div class="ba-divider" id="baDivider"></div>
+          <div class="ba-handle" id="baHandle" aria-hidden="true">↔</div>
+        </div>
+        <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Move slider to compare before and after images" />
+        <p class="caption">This visual is for concept communication. Final design would require professional planning, engineering, community review, and agency approval.</p>
+      </div>
+    </section>
+
+    <section id="pitch">
+      <span class="eyebrow">3. The pitch</span>
+      <h2>Montefiore Plaza as a Community Transformation Plan</h2>
+      <p class="lead">
+        Our proposal is not only about making the plaza look nicer. It is about turning a public space into a stronger community asset that supports Harlem residents, local businesses, visitors, families, seniors, students, and people with disabilities.
+      </p>
+      <div class="grid">
+        <article class="card"><h3>Safer public space</h3><p>More lighting, active programming, clear sightlines, and steady foot traffic can improve public comfort.</p></article>
+        <article class="card"><h3>Greener public space</h3><p>More trees, rain gardens, and permeable surfaces can support heat reduction and stormwater management.</p></article>
+        <article class="card"><h3>More economic activity</h3><p>Food kiosks, weekend markets, sponsorships, and cultural events can support local business visibility.</p></article>
+        <article class="card"><h3>Stronger Harlem identity</h3><p>Murals, music, spoken word, and public art can make the plaza feel culturally specific rather than generic.</p></article>
+      </div>
+    </section>
+
+    <section id="why" class="section-dark">
+      <span class="eyebrow">4. Why this project matters</span>
+      <h2>Why Government, Business Owners, and Investors Should Care</h2>
+      <div class="two-col">
+        <div>
+          <h3>For government</h3>
+          <p>The proposal supports public safety, accessibility, sustainability, public health, community programming, and equitable investment in public space.</p>
+          <h3>For business owners</h3>
+          <p>More people staying in the plaza means more potential customers for food vendors, local stores, pop-up markets, and surrounding businesses.</p>
+        </div>
+        <div>
+          <h3>For investors and sponsors</h3>
+          <p>The site can offer visible sponsorship opportunities through events, Wi-Fi, cultural festivals, kiosks, and community programming.</p>
+          <h3>For residents</h3>
+          <p>The redesign can create more shade, seating, accessibility, food access, family space, and cultural pride.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="financials">
+      <span class="eyebrow">5. Financial management</span>
+      <h2>Proposed Budget Breakdown</h2>
+      <p class="lead">
+        The table below shows a student proposed allocation for an upgraded vision. These numbers should be treated as planning estimates for a class pitch, not official bids or government-approved costs.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <caption>Proposed Budget Breakdown Table</caption>
+          <thead><tr><th>Redesign Component</th><th>Purpose</th><th>Estimated Cost</th></tr></thead>
+          <tbody>
+            <tr><td>Green Infrastructure & Landscaping</td><td>Tree planting, rain gardens, shaded seating, environmental improvements</td><td>$3.2 million</td></tr>
+            <tr><td>Flexible Seating Systems</td><td>Movable chairs, modular benches, community tables</td><td>$850,000</td></tr>
+            <tr><td>Smart Lighting & Technology</td><td>Energy-efficient lighting, Wi-Fi stations, charging stations</td><td>$1.5 million</td></tr>
+            <tr><td>Accessibility Improvements</td><td>ADA pathways, tactile paving, wider walkways, multilingual signage</td><td>$1.1 million</td></tr>
+            <tr><td>Cultural Art Installations</td><td>Murals, public art, Harlem history displays</td><td>$700,000</td></tr>
+            <tr><td>Vendor Kiosks & Market Areas</td><td>Small business spaces, food vendors, weekend markets</td><td>$900,000</td></tr>
+            <tr><td>Performance & Community Spaces</td><td>Stage construction, event areas, cultural programming infrastructure</td><td>$1.4 million</td></tr>
+            <tr><td>Drainage & Permeable Pavement</td><td>Stormwater management and flood reduction systems</td><td>$2 million</td></tr>
+            <tr><td>Maintenance & Operations Setup</td><td>Landscaping equipment, sanitation support, maintenance preparation</td><td>$750,000</td></tr>
+            <tr><td>Community Outreach & Programming</td><td>Surveys, workshops, public events, outreach campaigns</td><td>$400,000</td></tr>
+            <tr><td>Contingency Funding</td><td>Emergency expenses and unexpected construction costs</td><td>$1.2 million</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="highlight"><strong>Estimated total:</strong> approximately $13.6–$14.2 million. This is presented as a student estimate that uses phased construction, modular elements, and partnerships to control cost.</p>
+    </section>
+
+    <section id="phases">
+      <span class="eyebrow">6. Implementation</span>
+      <h2>Phased Implementation Plan</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Three-Year Project Timeline</caption>
+          <thead><tr><th>Phase</th><th>Timeline</th><th>Major Improvements</th></tr></thead>
+          <tbody>
+            <tr><td>Phase 1: Safety & Accessibility</td><td>Year 1</td><td>Lighting upgrades, ADA pathways, seating installation, cleanup efforts</td></tr>
+            <tr><td>Phase 2: Environmental Improvements</td><td>Year 2</td><td>Tree planting, rain gardens, shaded areas, permeable pavement</td></tr>
+            <tr><td>Phase 3: Cultural & Economic Activation</td><td>Year 3</td><td>Public art, vendor kiosks, performance spaces, programming launch</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Phasing makes the project more realistic because it spreads costs over time, reduces construction disruption, and allows community feedback before the final stage.</p>
+    </section>
+
+    <section id="graphs">
+      <span class="eyebrow">7. Data visuals</span>
+      <h2>Interactive Graphs With Verified Data and Labeled Projections</h2>
+      <div class="chart-card">
+        <h3>Official Cost vs. Student Proposed Estimate</h3>
+        <canvas id="costChart"></canvas>
+        <p class="chart-note">Verified data: NYC reported the original completed Montefiore project at $18.4 million. Student estimate: $13.6–$14.2 million for this proposed upgraded model.</p>
+      </div>
+      <div class="chart-card">
+        <h3>Where the Proposed Money Goes</h3>
+        <canvas id="budgetChart"></canvas>
+        <p class="chart-note">This graph visualizes the student proposed allocation from the budget table.</p>
+      </div>
+      <div class="chart-card">
+        <h3>Verified Physical Features From Existing Project</h3>
+        <canvas id="featureChart"></canvas>
+        <p class="chart-note">These are verified existing project features from public reporting: 44,650 square feet, 13,140 square-foot lawn, 36 trees, and 19 benches.</p>
+      </div>
+      <div class="chart-card">
+        <h3>Times Square Plaza Evidence</h3>
+        <canvas id="timesSquareChart"></canvas>
+        <p class="chart-note">NYC DOT's Green Light for Midtown report found Times Square pedestrian volumes increased 11% and pedestrian injuries declined 40% after plaza changes. This is evidence from a different NYC plaza, not a guaranteed Montefiore result.</p>
+      </div>
+      <div class="chart-card">
+        <h3>10-Year Revenue Recovery Projection</h3>
+        <canvas id="revenueChart"></canvas>
+        <p class="chart-note">Projection only. This assumes possible annual recovery from vendor permits, events, sponsorships, and grants. It is not guaranteed revenue.</p>
+      </div>
+    </section>
+
+    <section id="evidence">
+      <span class="eyebrow">8. Evidence from successful public spaces</span>
+      <h2>What Montefiore Can Learn From Other NYC Plazas</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Comparison of Successful NYC Public Spaces</caption>
+          <thead><tr><th>Plaza</th><th>Key Features</th><th>Measurable Outcomes</th></tr></thead>
+          <tbody>
+            <tr><td>Bryant Park</td><td>Flexible seating, food kiosks, year-round programming</td><td>Widely recognized as a highly active public space; used here as a design precedent rather than a numerical claim.</td></tr>
+            <tr><td>Times Square Plaza</td><td>Pedestrian-centered design, public seating, active visibility</td><td>NYC DOT reported 11% higher pedestrian volume and 40% fewer pedestrian injuries after the Green Light for Midtown changes.</td></tr>
+            <tr><td>Jackson Heights Plaza</td><td>Community programming, cultural events, local vendor integration</td><td>Used as a community-centered plaza model; exact local outcome numbers would require additional official neighborhood data.</td></tr>
+            <tr><td>Proposed Montefiore Plaza</td><td>Green infrastructure, Harlem cultural integration, phased redevelopment</td><td>Projected increase in community use, safety perception, and local economic activity. These are projections, not confirmed results.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="investors" class="section-dark">
+      <span class="eyebrow">9. Investor opportunities</span>
+      <h2>How the Project Could Attract Business and Investment</h2>
+      <div class="grid">
+        <article class="card"><h3>Vendor permits</h3><p>Food kiosks, local market tables, and seasonal pop-ups could create recurring revenue opportunities.</p></article>
+        <article class="card"><h3>Event sponsorships</h3><p>Local companies could sponsor music nights, family events, art installations, or Wi-Fi service.</p></article>
+        <article class="card"><h3>Brand visibility</h3><p>Businesses could receive public recognition through signage, event materials, and digital listings.</p></article>
+        <article class="card"><h3>Community goodwill</h3><p>Investing in the plaza connects businesses to public benefit, Harlem culture, and neighborhood development.</p></article>
+      </div>
+    </section>
+
+    <section id="features">
+      <span class="eyebrow">10. Community features</span>
+      <h2>Features for All Ages and Abilities</h2>
+      <div class="grid">
+        <article class="card"><h3>Food ordering</h3><p>QR menus, walk-up ordering, large-print menus, allergy labels, and pickup zones to reduce crowding.</p></article>
+        <article class="card"><h3>Free Wi-Fi</h3><p>Public Wi-Fi for students, workers, visitors, event updates, food ordering, and emergency information.</p></article>
+        <article class="card"><h3>Family zone</h3><p>Colorful play areas, stroller-friendly routes, shaded family seating, and clear sightlines for caregivers.</p></article>
+        <article class="card"><h3>Senior comfort</h3><p>Benches with backs, shade, smooth paths, quiet seating, and large-print signage.</p></article>
+        <article class="card"><h3>Blind-friendly design</h3><p>Tactile paving, high-contrast signs, audio map options, and screen-reader friendly web structure.</p></article>
+        <article class="card"><h3>Harlem culture</h3><p>Murals, jazz-inspired design, spoken word, local history displays, and rotating art.</p></article>
+      </div>
+    </section>
+
+    <section id="outcomes">
+      <span class="eyebrow">11. Projected outcomes</span>
+      <h2>Expected Community and Financial Outcomes</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Projected Benefits Table</caption>
+          <thead><tr><th>Category</th><th>Expected Outcome</th></tr></thead>
+          <tbody>
+            <tr><td>Social Benefits</td><td>Increased community interaction and reduced social isolation</td></tr>
+            <tr><td>Environmental Benefits</td><td>Lower urban heat accumulation and improved air quality</td></tr>
+            <tr><td>Economic Benefits</td><td>Increased foot traffic and support for local businesses</td></tr>
+            <tr><td>Safety Improvements</td><td>Greater pedestrian visibility and stronger public comfort</td></tr>
+            <tr><td>Cultural Benefits</td><td>Stronger representation of Harlem identity and history</td></tr>
+            <tr><td>Accessibility Improvements</td><td>More inclusive public access for residents of all abilities</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="environment">
+      <span class="eyebrow">12. Environmental case</span>
+      <h2>Environmental Impact Evidence</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Environmental Evidence Table</caption>
+          <thead><tr><th>Environmental Issue</th><th>Supporting Data</th></tr></thead>
+          <tbody>
+            <tr><td>Urban Heat Island Effect</td><td>EPA reports that urban daytime temperatures can be about 1–7°F higher than outlying areas.</td></tr>
+            <tr><td>Benefits of Urban Trees</td><td>Urban trees and green infrastructure support shade, heat reduction, stormwater management, and air quality improvements.</td></tr>
+            <tr><td>Green Infrastructure Benefits</td><td>Permeable pavement and rain gardens can help manage stormwater and reduce pressure on drainage systems.</td></tr>
+            <tr><td>Public Health Benefits</td><td>Green public spaces are often connected to stress reduction and improved emotional well-being in urban research.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="ten-year" class="section-dark">
+      <span class="eyebrow">13. Ten-year vision</span>
+      <h2>By 2035, Montefiore Plaza Could Become a Harlem Landmark</h2>
+      <p class="lead">If implemented and maintained properly, the plaza could grow into a stronger public destination over time.</p>
+      <div class="grid">
+        <article class="card"><h3>Hundreds of events</h3><p>Markets, music, spoken word, school events, and cultural festivals could create steady activity.</p></article>
+        <article class="card"><h3>Business growth</h3><p>Vendors and nearby businesses could benefit from a more active public space.</p></article>
+        <article class="card"><h3>Environmental resilience</h3><p>More shade, trees, and stormwater systems could help the plaza respond to heat and heavy rain.</p></article>
+        <article class="card"><h3>Public pride</h3><p>A Harlem-centered design could make residents feel represented instead of overlooked.</p></article>
+      </div>
+    </section>
+
+    <section id="faq">
+      <span class="eyebrow">14. FAQ</span>
+      <h2>Frequently Asked Questions for Government, Businesses, and Investors</h2>
+      <details><summary>Is this an official NYC proposal?</summary><p>No. This is a student redevelopment pitch created for educational purposes. It uses verified public data where available and labels projections clearly.</p></details>
+      <details><summary>Why should the city care?</summary><p>The proposal supports accessibility, public safety, sustainability, local economic activity, and community-centered design.</p></details>
+      <details><summary>Why should business owners care?</summary><p>A more active plaza can increase foot traffic, support food vendors, create event opportunities, and bring more people near local businesses.</p></details>
+      <details><summary>Why should investors or sponsors care?</summary><p>The project creates opportunities for visible sponsorship, public goodwill, vendor partnerships, event branding, and community investment.</p></details>
+      <details><summary>How can it cost less than $18.4 million?</summary><p>The lower number is a student estimate based on phased construction, modular features, partnerships, and targeted upgrades. It is not an official city bid.</p></details>
+      <details><summary>How does the project make money back?</summary><p>Possible sources include vendor permits, sponsored events, markets, nonprofit grants, and business partnerships. Exact revenue would depend on actual management agreements.</p></details>
+      <details><summary>How will the plaza stay clean and maintained?</summary><p>The plan includes maintenance funding, sanitation coordination, vendor rules, landscaping upkeep, and partnerships with schools, nonprofits, and local organizations.</p></details>
+      <details><summary>How will the plaza support blind or low-vision users?</summary><p>The proposal includes tactile paving, high-contrast signs, audio-friendly digital information, screen-reader support, and clear navigation paths.</p></details>
+      <details><summary>How will the plaza serve all ages?</summary><p>It includes family zones, youth Wi-Fi/study areas, adult lunch spaces, senior seating, and accessible routes for people with disabilities.</p></details>
+      <details><summary>What is the biggest limitation of this proposal?</summary><p>Professional implementation would require official cost estimates, licensed engineering review, community board input, city agency approval, and funding commitments.</p></details>
+    </section>
+
+    <section id="sources" class="section-dark">
+      <span class="eyebrow">Sources</span>
+      <h2>Evidence Used for This Website</h2>
+      <p class="lead">These are the main public sources used to keep the website factual. Add more sources as your research grows.</p>
+      <ul class="source-list">
+        <li><a href="https://www.nyc.gov/site/ddc/about/press-releases/2022/pr-012722-Montefiore.page" target="_blank" rel="noopener">NYC DDC official announcement on Montefiore Square project</a></li>
+        <li><a href="https://www.newyorkconstructionreport.com/city-completes-18-4-million-project-to-expand-and-revamp-montefiore-square-in-harlem/" target="_blank" rel="noopener">New York Construction Report project details</a></li>
+        <li><a href="https://nacto.org/wp-content/uploads/greenlight_midtown_nycdot.pdf" target="_blank" rel="noopener">NYC DOT Green Light for Midtown Evaluation Report</a></li>
+        <li><a href="https://www.epa.gov/heatislands/what-are-heat-islands" target="_blank" rel="noopener">EPA Heat Island explanation and temperature range</a></li>
+        <li><a href="https://www.nyc.gov/html/dot/html/pedestrians/nyc-plaza-program.shtml" target="_blank" rel="noopener">NYC DOT Plaza Program</a></li>
+      </ul>
+    </section>
+
+    <section id="cta">
+      <span class="eyebrow">Call to action</span>
+      <h2>From Plaza to Public Asset</h2>
+      <p class="lead">Montefiore Plaza can become a model for how public space investment supports community, culture, safety, sustainability, and local economic opportunity.</p>
+      <div class="button-row">
+        <a class="btn" href="#financials">Review Budget</a>
+        <a class="btn secondary" href="#sources">Check Sources</a>
+        <a class="btn secondary" href="#top">Back to Top</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Montefiore Plaza Reimagined</strong></p>
+    <p>Student proposal by Shamor and Mahnoor | Built for research writing and financial management presentation purposes.</p>
+  </footer>
+
+  <script>
+    // Before/After Slider
+    const baRange = document.getElementById('baRange');
+    const baAfter = document.getElementById('baAfter');
+    const baDivider = document.getElementById('baDivider');
+    const baHandle = document.getElementById('baHandle');
+
+    function updateSlider(value) {
+      baAfter.style.clipPath = `inset(0 0 0 ${value}%)`;
+      baDivider.style.left = `${value}%`;
+      baHandle.style.left = `${value}%`;
+    }
+
+    baRange.addEventListener('input', (event) => updateSlider(event.target.value));
+    updateSlider(50);
+
+    // Chart defaults
+    Chart.defaults.font.family = 'Arial, Helvetica, sans-serif';
+    Chart.defaults.font.size = 14;
+    Chart.defaults.color = '#102033';
+
+    // Chart 1: Cost comparison
+    new Chart(document.getElementById('costChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Official Completed Project', 'Student Estimate Low', 'Student Estimate High'],
+        datasets: [{
+          label: 'Cost in Millions of Dollars',
+          data: [18.4, 13.6, 14.2],
+          backgroundColor: ['#d94f3d', '#2f9e67', '#123c69']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true } },
+        scales: { y: { beginAtZero: true, title: { display: true, text: 'Millions of Dollars' } } }
+      }
+    });
+
+    // Chart 2: Budget allocation
+    new Chart(document.getElementById('budgetChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Green Infrastructure', 'Flexible Seating', 'Lighting & Technology', 'Accessibility', 'Cultural Art', 'Vendor Areas', 'Performance Spaces', 'Drainage', 'Maintenance', 'Outreach', 'Contingency'],
+        datasets: [{
+          label: 'Student Proposed Cost in Millions',
+          data: [3.2, 0.85, 1.5, 1.1, 0.7, 0.9, 1.4, 2.0, 0.75, 0.4, 1.2],
+          backgroundColor: ['#2f9e67', '#f5c542', '#123c69', '#6c63ff', '#f28c28', '#32b6a6', '#415a77', '#7fc8f8', '#ffb703', '#90be6d', '#d94f3d']
+        }]
+      },
+      options: { responsive: true }
+    });
+
+    // Chart 3: Verified existing features
+    new Chart(document.getElementById('featureChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Total Plaza Sq. Ft.', 'Central Lawn Sq. Ft.', 'New Trees', 'Benches'],
+        datasets: [{
+          label: 'Reported Existing Project Features',
+          data: [44650, 13140, 36, 19],
+          backgroundColor: ['#123c69', '#2f9e67', '#f5c542', '#f28c28']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: true } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+
+    // Chart 4: Times Square evidence
+    new Chart(document.getElementById('timesSquareChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Pedestrian Volume', 'Pedestrian Injuries'],
+        datasets: [{
+          label: 'Percent Change After Times Square Plaza Changes',
+          data: [11, -40],
+          backgroundColor: ['#2f9e67', '#d94f3d']
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: { y: { title: { display: true, text: 'Percent Change' } } }
+      }
+    });
+
+    // Chart 5: Projection model, labeled clearly
+    const years = ['Year 1','Year 2','Year 3','Year 4','Year 5','Year 6','Year 7','Year 8','Year 9','Year 10'];
+    const assumedAnnualRecovery = 0.493; // millions, projection only
+    const cumulativeRecovery = years.map((_, i) => Number(((i + 1) * assumedAnnualRecovery).toFixed(2)));
+
+    new Chart(document.getElementById('revenueChart'), {
+      type: 'line',
+      data: {
+        labels: years,
+        datasets: [{
+          label: 'Projected Cumulative Revenue Recovery in Millions',
+          data: cumulativeRecovery,
+          borderColor: '#2f9e67',
+          backgroundColor: 'rgba(47, 158, 103, 0.20)',
+          fill: true,
+          tension: 0.25
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: { y: { beginAtZero: true, title: { display: true, text: 'Millions of Dollars' } } }
+      }
+    });
+  </script>
+</body>
+</html>
